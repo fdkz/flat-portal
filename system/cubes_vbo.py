@@ -9,6 +9,7 @@ from pyglet.gl import *
 from ctypes import Structure, sizeof, pointer, c_uint32
 import vector
 
+import struct
 
 class CubeVertex(Structure):
     # TODO: correct use of __pack__?
@@ -33,16 +34,22 @@ class CubeVertex(Structure):
 class CubesVbo:
     VERTS_PER_CUBE = 6*6
     BYTES_PER_CUBE_VERT = 28
-    def __init__(self, num_cubes):
+    def __init__(self, num_cubes, raw_vbo_bytes=None):
         self.num_cubes = num_cubes
 
         assert self.BYTES_PER_CUBE_VERT == sizeof(CubeVertex)
 
         self._vbo_vertices_num   = self.VERTS_PER_CUBE * num_cubes;
         self._vbo_vertices_bytes = self._vbo_vertices_num * self.BYTES_PER_CUBE_VERT
-        #self._vbo_vertices = GLfloat * (self._vbo_vertices_num * self.BYTES_PER_CUBE_VERT / 4)
-        self._vbo_vertices = (CubeVertex * self._vbo_vertices_num)()
-        #print "len self._vbo_vertices", sizeof(self._vbo_vertices)
+        if raw_vbo_bytes:
+            assert len(raw_vbo_bytes) == self._vbo_vertices_num * sizeof(CubeVertex)
+            self._vbo_python_buffer = bytearray(raw_vbo_bytes)
+        else:
+            self._vbo_python_buffer = bytearray(self._vbo_vertices_num * sizeof(CubeVertex))
+        vbo_buf_type = CubeVertex * self._vbo_vertices_num
+        #self._vbo_vertices = (CubeVertex * self._vbo_vertices_num)()
+        self._vbo_vertices = vbo_buf_type.from_buffer(self._vbo_python_buffer)
+
         assert sizeof(self._vbo_vertices) == self._vbo_vertices_bytes
 
         self._vboid_vertices = GLuint()
@@ -60,6 +67,9 @@ class CubesVbo:
         n : vertex normal
         color : GLuint
         """
+        # this struct version is very slightly faster. but a bit more cryptic.
+        #struct.pack_into("fffIfff", self._vbo_python_buffer, 7*4*vertex_index, v[0], v[1], v[2], color, n[0], n[1], n[2])
+        #return
         vv = self._vbo_vertices[vertex_index]
         vv.x = v[0]
         vv.y = v[1]
@@ -159,14 +169,3 @@ class CubesVbo:
         glDisableClientState(GL_NORMAL_ARRAY);
         glDisableClientState(GL_COLOR_ARRAY);
         glDisableClientState(GL_VERTEX_ARRAY);
-
-        # glVertexPointer(3, GL_FLOAT, sizeof(CubeVertex), 0);
-        # glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(CubeVertex), (GLvoid*)offsetof(CubeVertex, color));
-        # glNormalPointer(GL_FLOAT, sizeof(CubeVertex), (GLvoid*)offsetof(CubeVertex, nx));
-        # glEnableClientState(GL_VERTEX_ARRAY);
-        # glEnableClientState(GL_COLOR_ARRAY);
-        # glEnableClientState(GL_NORMAL_ARRAY);
-        # glDrawArrays(GL_TRIANGLES, 0, m_vbo_vertices_num);
-        # glDisableClientState(GL_NORMAL_ARRAY);
-        # glDisableClientState(GL_COLOR_ARRAY);
-        # glDisableClientState(GL_VERTEX_ARRAY);

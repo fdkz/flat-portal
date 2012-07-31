@@ -1,22 +1,74 @@
+import random
+import time
+import os
+import struct
+import traceback
+import zlib
+
 import coordinate_system
 import vector
 import cubes_vbo
 import cube
-import random
-
 
 class World:
     """trees, cubes, floor"""
+    USE_CACHE_FILE = True
     def __init__(self):
 
+        cubefile = "worldcubes.dat"
+        if self.USE_CACHE_FILE and os.path.isfile(cubefile):
+            print "loading cubes from file '%s'" % cubefile
+            self._cubes_vbo_obj = self._load_cubefile(cubefile)
+        else:
+            print "generating cubes"
+            t = time.time()
+            cubes = self._generate_world()
+            print "generated %i cubes in %.2fs. converting to VBO.. (converting 5000 cubes takes ~3.3s on macbook pro 2010)" % (len(cubes), time.time() - t)
+            self._cubes_vbo_obj = cubes_vbo.CubesVbo(len(cubes))
+            t = time.time()
+            self._fill_cubes_vbo_with_cubes(self._cubes_vbo_obj, cubes)
+            print "done. conversion time %.2fs" % (time.time() - t)
+
+            try:
+                if self.USE_CACHE_FILE:
+                    print "saving cubes to file '%s'" % cubefile
+                    f = open(cubefile, "wb")
+                    f.write(struct.pack("!I", self._cubes_vbo_obj.num_cubes))
+                    data = zlib.compress(bytes(self._cubes_vbo_obj._vbo_python_buffer))
+                    print "unpacked %ikB packed %ikB" % (len(self._cubes_vbo_obj._vbo_python_buffer)/1000., len(data)/1000.)
+                    f.write(data)
+            except:
+                traceback.print_exc()
+                pass
+
+    def _load_cubefile(self, filename):
+        f = open(filename, "rb")
+        num_cubes = struct.unpack("!I", f.read(4))[0]
+        print "%i cubes" % num_cubes
+        packed_data = f.read()
+        data = zlib.decompress(packed_data)
+        print "packed %ikB unpacked %ikB" % (len(packed_data)/1000., len(data)/1000.)
+        cubes_vbo_obj = cubes_vbo.CubesVbo(num_cubes, data)
+        #f.readinto(cubes_vbo_obj._vbo_python_buffer)
+        return cubes_vbo_obj
+
+    def render(self):
+        self._cubes_vbo_obj.render()
+
+    def _fill_cubes_vbo_with_cubes(self, cubes_vbo_obj, cubes):
+        """takes a list of Cube instances and copies the data to the vertex buffer object"""
+        assert cubes_vbo_obj.num_cubes == len(cubes)
+        for i in range(cubes_vbo_obj.num_cubes):
+            cubes_vbo_obj.update_cube(i, cubes[i])
+
+    def _generate_world(self):
+        """generate a nice little world. some trees. a floor. some random cubes."""
         random.seed(5)
         base_ocs = coordinate_system.CoordinateSystem()
         w = 1.
         wy = .7
         cubes = []
         base_ocs.pos[2] += 25.
-
-        print "generating cubes"
         base_ocs.pos[0] -= 7.
         cubes.extend( self._generate_cube_tree(base_ocs, base_wx=w, base_wy=wy, base_wz=w, height_elements=20) )
         base_ocs.pos[0] += 7.
@@ -33,20 +85,7 @@ class World:
 
         cubes.extend( self._generate_cube_clump(30) )
         cubes.extend( self._generate_cube_floor(vector.Vector((0., 0., 40.)), xnum=14, znum=40, xsize=28, zsize=80) )
-
-        print "generated %i cubes. converting to VBO.. (~4s on macbook pro 2010)" % len(cubes)
-        self._cubes_vbo_obj = cubes_vbo.CubesVbo(len(cubes))
-        self._fill_cubes_vbo_with_cubes(self._cubes_vbo_obj, cubes)
-        print "done"
-
-    def render(self):
-        self._cubes_vbo_obj.render()
-
-    def _fill_cubes_vbo_with_cubes(self, cubes_vbo_obj, cubes):
-        """takes a list of Cube instances and copies the data to the vertex buffer object"""
-        assert cubes_vbo_obj.num_cubes == len(cubes)
-        for i in range(cubes_vbo_obj.num_cubes):
-            cubes_vbo_obj.update_cube(i, cubes[i])
+        return cubes
 
     def _generate_cube_tree(self, base_ocs, base_wx, base_wy, base_wz, height_elements, branch_color=(1.,1.,1.,1.), first=True):
         """generate a branch. by some random treshold, generate recursively a new branch. return the resulting tree of Cube objects."""

@@ -1,6 +1,7 @@
 from system import main
 
 main.WINDOW_SIZE = (1920, 1080)
+main.WINDOW_SIZE = (1100, 600)
 # side-by-side stereo rendering
 main.USE_SBS_STEREO_RENDERING = False
 main.SWAP_LEFT_RIGHT_EYE = False
