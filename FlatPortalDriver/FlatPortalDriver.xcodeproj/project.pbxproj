@@ -1,0 +1,297 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C1DF4AB215BB0C33001EF89E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DF4AB115BB0C33001EF89E /* Cocoa.framework */; };
+		C1DF4ABC15BB0C33001EF89E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1DF4ABA15BB0C33001EF89E /* InfoPlist.strings */; };
+		C1DF4ABE15BB0C33001EF89E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DF4ABD15BB0C33001EF89E /* main.m */; };
+		C1DF4AC215BB0C33001EF89E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C1DF4AC015BB0C33001EF89E /* Credits.rtf */; };
+		C1DF4AC515BB0C33001EF89E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DF4AC415BB0C33001EF89E /* AppDelegate.m */; };
+		C1DF4AC815BB0C34001EF89E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DF4AC615BB0C34001EF89E /* MainMenu.xib */; };
+		C1DF4ACF15BB6780001EF89E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DF4ACE15BB6780001EF89E /* MainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C1DF4AAD15BB0C33001EF89E /* FlatPortalDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatPortalDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1DF4AB115BB0C33001EF89E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C1DF4AB415BB0C33001EF89E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C1DF4AB515BB0C33001EF89E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C1DF4AB615BB0C33001EF89E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C1DF4AB915BB0C33001EF89E /* FlatPortalDriver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlatPortalDriver-Info.plist"; sourceTree = "<group>"; };
+		C1DF4ABB15BB0C33001EF89E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C1DF4ABD15BB0C33001EF89E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C1DF4ABF15BB0C33001EF89E /* FlatPortalDriver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlatPortalDriver-Prefix.pch"; sourceTree = "<group>"; };
+		C1DF4AC115BB0C33001EF89E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		C1DF4AC315BB0C33001EF89E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C1DF4AC415BB0C33001EF89E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C1DF4AC715BB0C34001EF89E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C1DF4ACE15BB6780001EF89E /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C1DF4AAA15BB0C33001EF89E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1DF4AB215BB0C33001EF89E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C1DF4AA215BB0C33001EF89E = {
+			isa = PBXGroup;
+			children = (
+				C1DF4AB715BB0C33001EF89E /* FlatPortalDriver */,
+				C1DF4AB015BB0C33001EF89E /* Frameworks */,
+				C1DF4AAE15BB0C33001EF89E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C1DF4AAE15BB0C33001EF89E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1DF4AAD15BB0C33001EF89E /* FlatPortalDriver.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C1DF4AB015BB0C33001EF89E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1DF4AB115BB0C33001EF89E /* Cocoa.framework */,
+				C1DF4AB315BB0C33001EF89E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C1DF4AB315BB0C33001EF89E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1DF4AB415BB0C33001EF89E /* AppKit.framework */,
+				C1DF4AB515BB0C33001EF89E /* CoreData.framework */,
+				C1DF4AB615BB0C33001EF89E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C1DF4AB715BB0C33001EF89E /* FlatPortalDriver */ = {
+			isa = PBXGroup;
+			children = (
+				C1DF4AC315BB0C33001EF89E /* AppDelegate.h */,
+				C1DF4AC415BB0C33001EF89E /* AppDelegate.m */,
+				C1DF4AC615BB0C34001EF89E /* MainMenu.xib */,
+				C1DF4ACE15BB6780001EF89E /* MainWindow.xib */,
+				C1DF4AB815BB0C33001EF89E /* Supporting Files */,
+			);
+			path = FlatPortalDriver;
+			sourceTree = "<group>";
+		};
+		C1DF4AB815BB0C33001EF89E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C1DF4AB915BB0C33001EF89E /* FlatPortalDriver-Info.plist */,
+				C1DF4ABA15BB0C33001EF89E /* InfoPlist.strings */,
+				C1DF4ABD15BB0C33001EF89E /* main.m */,
+				C1DF4ABF15BB0C33001EF89E /* FlatPortalDriver-Prefix.pch */,
+				C1DF4AC015BB0C33001EF89E /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C1DF4AAC15BB0C33001EF89E /* FlatPortalDriver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1DF4ACB15BB0C34001EF89E /* Build configuration list for PBXNativeTarget "FlatPortalDriver" */;
+			buildPhases = (
+				C1DF4AA915BB0C33001EF89E /* Sources */,
+				C1DF4AAA15BB0C33001EF89E /* Frameworks */,
+				C1DF4AAB15BB0C33001EF89E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlatPortalDriver;
+			productName = FlatPortalDriver;
+			productReference = C1DF4AAD15BB0C33001EF89E /* FlatPortalDriver.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C1DF4AA415BB0C33001EF89E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = C1DF4AA715BB0C33001EF89E /* Build configuration list for PBXProject "FlatPortalDriver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C1DF4AA215BB0C33001EF89E;
+			productRefGroup = C1DF4AAE15BB0C33001EF89E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1DF4AAC15BB0C33001EF89E /* FlatPortalDriver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C1DF4AAB15BB0C33001EF89E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1DF4ABC15BB0C33001EF89E /* InfoPlist.strings in Resources */,
+				C1DF4AC215BB0C33001EF89E /* Credits.rtf in Resources */,
+				C1DF4AC815BB0C34001EF89E /* MainMenu.xib in Resources */,
+				C1DF4ACF15BB6780001EF89E /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C1DF4AA915BB0C33001EF89E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1DF4ABE15BB0C33001EF89E /* main.m in Sources */,
+				C1DF4AC515BB0C33001EF89E /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C1DF4ABA15BB0C33001EF89E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1DF4ABB15BB0C33001EF89E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C1DF4AC015BB0C33001EF89E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1DF4AC115BB0C33001EF89E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		C1DF4AC615BB0C34001EF89E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1DF4AC715BB0C34001EF89E /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C1DF4AC915BB0C34001EF89E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C1DF4ACA15BB0C34001EF89E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C1DF4ACC15BB0C34001EF89E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlatPortalDriver/FlatPortalDriver-Prefix.pch";
+				INFOPLIST_FILE = "FlatPortalDriver/FlatPortalDriver-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C1DF4ACD15BB0C34001EF89E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlatPortalDriver/FlatPortalDriver-Prefix.pch";
+				INFOPLIST_FILE = "FlatPortalDriver/FlatPortalDriver-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C1DF4AA715BB0C33001EF89E /* Build configuration list for PBXProject "FlatPortalDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1DF4AC915BB0C34001EF89E /* Debug */,
+				C1DF4ACA15BB0C34001EF89E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1DF4ACB15BB0C34001EF89E /* Build configuration list for PBXNativeTarget "FlatPortalDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1DF4ACC15BB0C34001EF89E /* Debug */,
+				C1DF4ACD15BB0C34001EF89E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C1DF4AA415BB0C33001EF89E /* Project object */;
+}
